@@ -1,0 +1,10 @@
+a{
+    text-decoration: none !important;
+    color: white !important;
+}
+
+.brand-name{
+    font-size: 2rem;
+    font-family: fantasy;
+    font-weight: bolder;
+}

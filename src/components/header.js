@@ -10,12 +10,12 @@ import {
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CartContext, ProductsContext } from "../context/context";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import axios from "axios";
 
 export function Header() {
-  const { cart, setCart } = useContext(CartContext);
-  const { products, setProducts } = useContext(ProductsContext);
+  const { cart } = useContext(CartContext);
+  const { setProducts } = useContext(ProductsContext);
 
     const searchProducts=(e)=>{
         return axios.get(`https://dummyjson.com/products/search?q=${e}`).then(res=>{
@@ -26,10 +26,10 @@ export function Header() {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
+      <Navbar bg="dark" data-bs-theme="dark" style={{ height: 80 }}>
         <Container>
           <Navbar.Brand>
-            <Link to="/">E-SHOP</Link>
+            <Link to="/" className="brand-name">Just Shop</Link>
           </Navbar.Brand>
           <Navbar.Text className="search">
             <FormControl

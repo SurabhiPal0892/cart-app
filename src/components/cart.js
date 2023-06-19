@@ -1,7 +1,6 @@
 import { CartContext } from "../context/context";
 import { useContext, useEffect, useState } from "react";
 import "../styles/home.css";
-import { Product } from "./product";
 import { Card, Button } from "react-bootstrap";
 
 export function Cart() {
@@ -46,7 +45,7 @@ export function Cart() {
                 return (
                   <div key={prod.id} className="cart__items">
                     <div>
-                    <img src={prod.thumbnail} className="cart__image" />
+                    <img src={prod.thumbnail} className="cart__image" alt={prod.title} />
                         </div>
                     <div style={{width:150}}>
                       <p>Name: {prod.title}</p>

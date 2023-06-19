@@ -1,9 +1,7 @@
-import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import { useState, useContext } from "react";
 import "../styles/home.css";
 import { Button } from "react-bootstrap";
 import { CartContext } from "../context/context";
-
 export function Product({ prod, buttonName }) {
   const { cart, setCart } = useContext(CartContext);
   const [hideAdd,setHideAdd]=useState(false);
@@ -26,18 +24,21 @@ export function Product({ prod, buttonName }) {
           }
         }
       setCart([...cart]);
+      setHideAdd(false)
   }
 
   return (
     <div className="product__card" key={prod.id}>
-      <img src={prod.thumbnail} />
+      <img src={prod.thumbnail} alt={prod.id}/>
       <div className="product__card__bottom">
-        <span>{prod.title}</span>
-        {
-            hideAdd?<Button variant="outline-danger" size="sm" onClick={()=>removeFromCart(prod)}>Remove from cart</Button>:<Button variant="primary" size="sm" onClick={() => addToCart(prod)}>
-            Add to cart
+        <div className="prod_title">{prod.title}</div>
+       <div>
+       {
+            hideAdd?<Button variant="outline-danger" size="sm" onClick={()=>removeFromCart(prod)}>Remove</Button>:<Button variant="primary" size="sm" onClick={() => addToCart(prod)}>
+         Add
           </Button>
         }
+        </div> 
           
       </div>
     </div>
